@@ -32,17 +32,14 @@ public class UserController {
 	@Autowired
 	private EurekaClient eurekaClient;
 
-	@GetMapping("/hello")
-	public String hello() {
-		return "Hello from user service";
-	}
+	
 
-	@GetMapping("/create-account")
-	public Object createAccount(@RequestParam(name = "token") String token,
+	@PostMapping("/create-account")
+	public Object createAccount(@RequestParam(name = "userId") String userId,
 			@RequestParam(name = "username") String username) throws URISyntaxException {
 
 		try {
-			return send("/create-account?token=" + token + "&username=" + username, null).body();
+			return send("/create-account?token=" + userId + "&username=" + username, null).body();
 		} catch (ResponseStatusException e) {
 			StringWriter sw = new StringWriter();
 			PrintWriter pw = new PrintWriter(sw);

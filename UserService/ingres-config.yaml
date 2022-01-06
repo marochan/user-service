@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-service
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+    - host: da.k8s.com
+      http:
+        paths:
+          - path: /
+            backend:  
+              serviceName: das-service
+              servicePort: 8080
+    - host: us.k8s.com
+      http:
+        paths: 
+          - path: /
+            backend:
+              serviceName: us-service
+              servicePort: 9090
+    - host: lm.k8s.com
+      http:
+        paths:
+          - path: /
+            backend:  
+              serviceName: lm-service
+              servicePort: 1111
