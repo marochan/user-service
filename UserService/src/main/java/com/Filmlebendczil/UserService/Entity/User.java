@@ -4,22 +4,22 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class User {
-	private String token;
+	private String userId;
 	private  String username;
 	
 	
-	public User(String token, String username) {
+	public User(String userId, String username) {
 		super();
-		this.token = token;
+		this.userId = userId;
 		this.username = username;
 	}
 
-	public String getToken() {
-		return token;
+	public String getUserId() {
+		return userId;
 	}
 
-	public void setToken(String token) {
-		this.token = token;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	public String getUsername() {
